@@ -275,9 +275,98 @@ Does not include: expansion/upsell revenue from activated accounts, attributed e
 <tr><td>5</td><td>Expand to international markets if US results validate</td><td>Growth PM</td><td>Q1 FY27</td></tr>
 </table>
 
+<!-- SECTION 8 -->
+<h2>8. Voice of Customer — Zero-State Feedback from Slack</h2>
+<p style="margin-bottom:16px;">We analyzed five internal Slack feedback channels (#hvc_feedback, #mc-reporting-analytics-feedback, #dsh_hvc_feedback, #dsh_non_hvc_feedback, #analytics-agent-card-negative-feedbacks-with-voc) for VOC related to empty dashboards, zero data, and no-data reporting experiences.</p>
+
+<h3>8a. Scale of Zero-State VOC</h3>
+<table>
+<tr><th>Category</th><th># Feedback Items</th><th>Cumulative MRR</th></tr>
+<tr><td>Direct zero-state (sees 0, blank, nothing)</td><td>10</td><td>$2,798</td></tr>
+<tr><td>Adjacent data-quality (wrong data / can't trust)</td><td>8</td><td>$5,384</td></tr>
+<tr><td><strong>Total zero-state + adjacent</strong></td><td><strong>18</strong></td><td><strong>~$8,182</strong></td></tr>
+</table>
+<p class="annotation">Jan–May 2026 window. One P1 incident (Feb 21) impacted 2,400 users but only surfaced as 1 CSAT ticket — true exposure is likely 10–50× what VOC captures.</p>
+
+<h3>8b. HVC ($299+) vs Non-HVC Split</h3>
+<table>
+<tr><th>Segment</th><th># Items</th><th>% of Items</th><th>Cumulative MRR</th><th>% of MRR at Risk</th></tr>
+<tr><td><strong>HVC ($299+)</strong></td><td>3</td><td>30%</td><td>$2,637+</td><td><strong>94%</strong></td></tr>
+<tr><td>Non-HVC</td><td>7</td><td>70%</td><td>$161</td><td>6%</td></tr>
+</table>
+<p class="annotation">Direct zero-state only. When including adjacent data-quality issues, HVC representation rises to 7 items / $5,582+ MRR.</p>
+
+<h3>8c. Severity & Churn Signals</h3>
+<div class="insight-box">
+<h4>Key Patterns</h4>
+<ul style="margin-left:18px; margin-top:8px;">
+<li><strong>100% of zero-state VOC is Terrible or Poor CSAT</strong> — the most severe rating band.</li>
+<li><strong>2 P1-level incidents triggered</strong> by zero-state conditions (Feb 21 query allowlist, Apr 24 CLS empty insights).</li>
+<li><strong>Explicit churn signal:</strong> one user ($110 MRR) stated <em>"I'm thinking about changing my subscription to another platform because I'm so frustrated."</em></li>
+<li><strong>Zero-state as % of all negative feedback:</strong> 5–7% of items, but <strong>disproportionately severe</strong> in CSAT rating and MRR exposure.</li>
+</ul>
+</div>
+
+<h3>8d. Representative Customer Quotes</h3>
+<table style="font-size:0.85rem;">
+<tr><th>Quote</th><th>Plan</th><th>MRR</th><th>CSAT</th></tr>
+<tr><td>"Why are click data and revenue zero, and why is there no data in the report?"</td><td>Premium</td><td>$2,227</td><td>Terrible</td></tr>
+<tr><td>"The new Marketing Dashboard... reports all metrics at zero, and then each test group appears as its own campaign."</td><td>Paid</td><td>$410</td><td>Poor</td></tr>
+<tr><td>"I don't see the reports anymore."</td><td>Essentials</td><td>$45</td><td>Terrible</td></tr>
+<tr><td>"I got an email alert to 'view reporting dashboard'… Instead it gives me an 'upgrade now' page with no clear way to look at the report."</td><td>Essentials</td><td>$39</td><td>Terrible</td></tr>
+<tr><td>"The accuracy of the reporting data has been abysmal… I'm thinking about changing my subscription."</td><td>Essentials</td><td>$110</td><td>Poor</td></tr>
+<tr><td>"Your analytics are all over the place. Every page reports different things."</td><td>Standard</td><td>$60</td><td>Poor</td></tr>
+</table>
+<p class="annotation">Source: #hvc_feedback and #mc-reporting-analytics-feedback, Jan–May 2026.</p>
+
+<!-- SECTION 9 -->
+<h2>9. External Research — Why Activation & Time-to-Value Matter</h2>
+<p style="margin-bottom:16px;">Industry research from Amplitude, Userpilot, ProductLed, Mixpanel, Pendo, HubSpot, and others consistently demonstrates that early activation is the strongest predictor of retention and revenue in SaaS — and that marketing platforms are particularly vulnerable.</p>
+
+<h3>9a. Key External Findings</h3>
+<table style="font-size:0.85rem;">
+<tr><th>Finding</th><th>Source</th><th>Year</th></tr>
+<tr><td><strong>91% of new users drop off within 14 days</strong> if they don't experience value early</td><td>Amplitude, Product Benchmark Report</td><td>2025</td></tr>
+<tr><td><strong>69% correlation:</strong> Week-1 activation predicts 3-month retention</td><td>Amplitude</td><td>2025</td></tr>
+<tr><td><strong>MarTech activation rate is only 24%</strong> (vs. 37.5% SaaS average); 25% activation improvement → 34% MRR growth</td><td>Userpilot (547 companies)</td><td>2024</td></tr>
+<tr><td>Users completing <strong>3 "magic actions" in 48 hours: 71% 90-day retention</strong>; 0–1 actions: 12% retention</td><td>Athenic (31,000 sessions)</td><td>2025</td></tr>
+<tr><td><strong>Every additional hour of delay = 8% drop in activation rate</strong></td><td>Athenic</td><td>2025</td></tr>
+<tr><td>PLG companies with fast time-to-value see <strong>2× profitability</strong> (68% vs 36.4%)</td><td>ProductLed (446 companies)</td><td>2025</td></tr>
+<tr><td>Week-1 retention collapsed from <strong>50% to 28%</strong> across industries — users are less patient than ever</td><td>Mixpanel (7,500+ companies)</td><td>2024</td></tr>
+<tr><td>HubSpot averages <strong>6 weeks to operationalization → 94% more deals closed</strong> in 6 months</td><td>HubSpot ROI Report (268K customers)</td><td>2025</td></tr>
+<tr><td>PLG leaders grow at <strong>50% YoY vs 21%</strong> for traditional SaaS</td><td>OpenView + Pendo</td><td>2023</td></tr>
+<tr><td>Automated onboarding cuts <strong>time-to-value by 68%</strong> (44 days → 14 days)</td><td>Athenic (73 B2B SaaS companies)</td><td>2024</td></tr>
+<tr><td><strong>"The seeds of churn are planted early"</strong> — mismanaged first experiences create silent churn</td><td>Lincoln Murphy, Sixteen Ventures</td><td>2015+</td></tr>
+</table>
+
+<h3>9b. The Competitive Context</h3>
+<div class="insight-box">
+<h4>What This Means for Mailchimp</h4>
+<ul style="margin-left:18px; margin-top:8px;">
+<li><strong>Marketing platforms already have below-average activation (24%).</strong> An empty dashboard makes a bad situation worse.</li>
+<li><strong>The tolerance bar is rising, not falling.</strong> Week-1 retention dropped from 50% → 28% across industries; users expect value within 1.5 days.</li>
+<li><strong>Competitors have already moved.</strong> HubSpot, Klaviyo, and PLG leaders invest heavily in instant-value onboarding (sample data, guided setup, pre-connected sources).</li>
+<li><strong>The ROI of fixing this is well-documented:</strong> 25% activation improvement → 34% MRR growth (Userpilot); 68% faster TTV → 62% fewer support tickets (Athenic).</li>
+<li><strong>Empty dashboards don't just delay value — they plant the seed of churn</strong> at the exact moment of highest user motivation.</li>
+</ul>
+</div>
+
+<h3>9c. Sources & Citations</h3>
+<table style="font-size:0.8rem;">
+<tr><th>Source</th><th>URL</th></tr>
+<tr><td>Amplitude Product Benchmark Report 2025</td><td><a href="https://amplitude.com/resources/product-benchmark-report">amplitude.com</a></td></tr>
+<tr><td>Userpilot Activation Rate Benchmark 2024</td><td><a href="https://userpilot.com/blog/user-activation-rate-benchmark-report-2024/">userpilot.com</a></td></tr>
+<tr><td>Athenic SaaS Onboarding Study 2025</td><td><a href="https://getathenic.com/blog/saas-onboarding-first-48-hours-optimization">getathenic.com</a></td></tr>
+<tr><td>ProductLed State of B2B SaaS 2025</td><td><a href="https://productled.com/blog/state-of-b2b-saas-2025-report">productled.com</a></td></tr>
+<tr><td>Mixpanel Benchmarks Report 2024</td><td><a href="https://mixpanel.com/blog/2024-mixpanel-benchmarks-report/">mixpanel.com</a></td></tr>
+<tr><td>HubSpot ROI Report 2025</td><td><a href="https://www.hubspot.com/ROI">hubspot.com</a></td></tr>
+<tr><td>OpenView Product Benchmarks 2023</td><td><a href="https://openviewpartners.com/2023-product-benchmarks/">openviewpartners.com</a></td></tr>
+<tr><td>Lincoln Murphy — Seeds of Churn</td><td><a href="https://sixteenventures.com/seeds-of-churn">sixteenventures.com</a></td></tr>
+</table>
+
 <div class="footer">
-<p>Analysis by Deepak Prabhakaran &bull; Data source: mc-business-intelligence BigQuery &bull; Generated May 5, 2026</p>
-<p>Methodology: Zero-state defined as accounts with no sends (all-time via sends_by_day), list_size = 0, subscribed_size = 0, ecomm_level = 'non', and no active integration row. US market only (analytics_country_group = 'United States'), accounts created in last 2 years, not closed.</p>
+<p>Analysis by Deepak Prabhakaran &bull; Data source: mc-business-intelligence BigQuery + Slack VOC + External Research &bull; Generated May 5, 2026</p>
+<p>Methodology: Zero-state defined as accounts with no sends (all-time via sends_by_day), list_size = 0, subscribed_size = 0, ecomm_level = 'non', and no active integration row. US market only (analytics_country_group = 'United States'), accounts created in last 2 years, not closed. VOC from #hvc_feedback and #mc-reporting-analytics-feedback (Jan–May 2026). External research from named, published sources only.</p>
 </div>
 
 </div><!-- /.container -->
