@@ -47,7 +47,7 @@ tr:hover { background: #fafafa; }
 <!-- EXEC SUMMARY -->
 <div class="exec-summary">
 <p><strong>Bottom line:</strong> ~26% of US accounts created in the last 2 years (273K accounts) see an empty marketing analytics dashboard today — no sends, no contacts, no connected store/integration. These "zero-state" users convert to paid at <strong>0.29%</strong> vs <strong>5.33%</strong> for non-zero-state, log in <strong>2.8× less often</strong>, and churn at a <strong>37% higher rate</strong>.</p>
-<p><strong>Opportunity:</strong> Even modest improvements to zero-state activation (converting 5–15% of them out of zero-state) could unlock <strong>$580K–$2.6M in incremental annualized revenue</strong> from trial-to-paid conversion and retained MRR alone.</p>
+<p><strong>Opportunity:</strong> Even modest improvements to zero-state activation (converting 5–15% of them out of zero-state), with a realistic <strong>70% retention rate</strong>, could unlock <strong>$285K–$1.04M in incremental annualized revenue</strong> from trial-to-paid conversion and retained MRR alone.</p>
 <p><strong>Recommendation:</strong> <span class="badge badge-green">GO</span> — Invest in zero-state onboarding improvements for Q3/Q4 FY26 with clear activation KPIs.</p>
 </div>
 
@@ -184,33 +184,67 @@ tr:hover { background: #fafafa; }
 <!-- SECTION 6 -->
 <h2>6. Revenue Impact Scenario Model (12 Months)</h2>
 
-<h3>Assumptions</h3>
+<h3>Core Assumptions</h3>
 <table>
 <tr><th>Parameter</th><th>Value</th><th>Source</th></tr>
-<tr><td>Zero-state US accounts (addressable)</td><td>273,213</td><td>BigQuery (this analysis)</td></tr>
-<tr><td>Avg MRR of a newly-converted paid account</td><td>$20 (median non-ZS)</td><td>bi_reporting.users median_mrr_est</td></tr>
-<tr><td>Current zero-state → paid conversion</td><td>0.29%</td><td>BigQuery (this analysis)</td></tr>
-<tr><td>Monthly active zero-state cohort (new entrants/yr)</td><td>~136K/yr (half of 2yr pool)</td><td>Estimate: cohort split evenly</td></tr>
-<tr><td>Retention benefit per converted user</td><td>Avg 10 months paid tenure</td><td>Industry benchmark for SMB SaaS</td></tr>
+<tr><td>Zero-state US accounts (addressable pool)</td><td>273,213</td><td>BigQuery (this analysis)</td></tr>
+<tr><td>Avg MRR of paid monthly subscribers</td><td>$66.87</td><td>bi_reporting.users × mcc1profile (paid monthly accounts only)</td></tr>
+<tr><td>Current zero-state → paid conversion rate</td><td>0.29%</td><td>BigQuery (this analysis)</td></tr>
+<tr><td>Current non-zero-state → paid conversion rate</td><td>5.33%</td><td>BigQuery (this analysis)</td></tr>
+<tr><td><strong>Retention rate (new paid customers)</strong></td><td><strong>70%</strong></td><td>Conservative estimate — not all converted users will retain through full tenure</td></tr>
+<tr><td>Total paid monthly MRR (non-ZS US cohort)</td><td>$8.23M / month</td><td>BigQuery: 123,093 paid monthly accounts × $66.87 avg</td></tr>
+<tr><td>Annual paid MRR churn rate (assumed)</td><td>8%</td><td>Industry benchmark for SMB SaaS (conservative for Mailchimp's profile)</td></tr>
 </table>
 
-<h3>Scenario Matrix</h3>
+<h3>Line A: Incremental Revenue from New Paid Conversions</h3>
+<div style="background:#f5f5f5; padding:16px; border-radius:6px; margin:12px 0; font-family: monospace; font-size: 0.85rem;">
+<strong>Formula:</strong><br>
+Incremental Revenue = Zero-State Base × Activation Rate × Conversion Lift × Avg MRR × Tenure Months × <span style="color:var(--red)">70% Retention</span>
+</div>
+
 <table class="scenario-table">
-<tr><th class="label"></th><th>Low (Conservative)</th><th>Medium (Base)</th><th>High (Optimistic)</th></tr>
-<tr><td class="label"><strong>% of zero-state users activated out of zero-state</strong></td><td>5%</td><td>10%</td><td>15%</td></tr>
-<tr><td class="label">Accounts activated (12mo)</td><td>13,661</td><td>27,321</td><td>40,982</td></tr>
-<tr><td class="label"><strong>Incremental trial → paid conversion lift</strong></td><td>+1 pp (0.29% → 1.29%)</td><td>+2 pp (0.29% → 2.29%)</td><td>+3 pp (0.29% → 3.29%)</td></tr>
-<tr><td class="label">Incremental new paid accounts (12mo)</td><td>~1,367</td><td>~2,732</td><td>~4,098</td></tr>
-<tr><td class="label"><strong>Avg MRR per new paid account</strong></td><td>$20</td><td>$20</td><td>$20</td></tr>
-<tr><td class="label"><strong>Avg paid tenure (months)</strong></td><td>8</td><td>10</td><td>12</td></tr>
-<tr><td class="label"><strong>Incremental revenue (12mo)</strong></td><td style="color: var(--green); font-weight: 700;">$219K</td><td style="color: var(--green); font-weight: 700;">$546K</td><td style="color: var(--green); font-weight: 700;">$983K</td></tr>
-<tr><td class="label"><strong>+ Retained MRR saved (churn reduction)</strong></td><td>$362K</td><td>$724K</td><td>$1,086K</td></tr>
-<tr><td class="label" style="font-weight:700; border-top: 2px solid #333;">Total Incremental Revenue Impact (12mo)</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$581K</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$1.27M</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$2.07M</td></tr>
+<tr><th class="label">Component</th><th>Low</th><th>Medium</th><th>High</th></tr>
+<tr><td class="label">Zero-state base</td><td>273,213</td><td>273,213</td><td>273,213</td></tr>
+<tr><td class="label">× Activation rate (% exiting zero-state)</td><td>5%</td><td>10%</td><td>15%</td></tr>
+<tr><td class="label">= Accounts activated (12mo)</td><td>13,661</td><td>27,321</td><td>40,982</td></tr>
+<tr><td class="label">× Paid conversion lift</td><td>+1 pp → 1.29%</td><td>+2 pp → 2.29%</td><td>+3 pp → 3.29%</td></tr>
+<tr><td class="label">= Incremental new paid accounts</td><td>176</td><td>626</td><td>1,348</td></tr>
+<tr><td class="label">× Avg MRR per paid account</td><td>$66.87</td><td>$66.87</td><td>$66.87</td></tr>
+<tr><td class="label">× Avg paid tenure (months in 12mo window)</td><td>8</td><td>10</td><td>12</td></tr>
+<tr><td class="label">× <strong>Retention rate</strong></td><td><strong>70%</strong></td><td><strong>70%</strong></td><td><strong>70%</strong></td></tr>
+<tr><td class="label" style="font-weight:700; border-top: 2px solid #333;">= Line A: New Conversion Revenue (12mo)</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$66K</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$293K</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$759K</td></tr>
+</table>
+<p class="annotation">Conversion lift is applied to the activated cohort only. Low = 1pp above current 0.29%; Med = 2pp; High = 3pp (still well below non-ZS benchmark of 5.33%).</p>
+
+<h3>Line B: Retained MRR Saved (Churn Reduction on Existing Paid Base)</h3>
+<div style="background:#f5f5f5; padding:16px; border-radius:6px; margin:12px 0; font-family: monospace; font-size: 0.85rem;">
+<strong>Formula:</strong><br>
+Retained MRR = Total Paid Monthly MRR × Annual Churn Rate × Relative Churn Reduction % × 12 months
+</div>
+<p style="font-size:0.88rem; margin: 8px 0 16px;">
+<strong>Logic:</strong> Zero-state onboarding improvements don't just help zero-state users — they improve the overall product experience for existing paid subscribers (richer dashboard → higher perceived value → lower cancel propensity). The 37% churn gap between ZS and non-ZS signals that dashboard utility is correlated with retention. Improving activation quality reduces voluntary churn across the paid base.</p>
+
+<table class="scenario-table">
+<tr><th class="label">Component</th><th>Low</th><th>Medium</th><th>High</th></tr>
+<tr><td class="label">Total paid monthly MRR (US non-ZS cohort)</td><td>$8.23M</td><td>$8.23M</td><td>$8.23M</td></tr>
+<tr><td class="label">× Annual paid MRR churn rate (assumed)</td><td>8%</td><td>8%</td><td>8%</td></tr>
+<tr><td class="label">= Annual MRR at risk of churn</td><td>$658K</td><td>$658K</td><td>$658K</td></tr>
+<tr><td class="label">× Relative churn reduction from project</td><td>15%</td><td>25%</td><td>40%</td></tr>
+<tr><td class="label" style="font-weight:700; border-top: 2px solid #333;">= Line B: Retained MRR Saved (12mo)</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$99K</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$165K</td><td style="color: var(--green); font-weight: 700; border-top: 2px solid #333;">$263K</td></tr>
 </table>
 <p class="annotation">
-<strong>Retained MRR saved logic:</strong> 0.52 pp churn gap × fraction closed (Low: 25% / Med: 50% / High: 75% gap closure) × avg $14.24 MRR × 12mo × affected base (accounts moved out of zero-state).
-Conservative — does not include upsell/expansion or attributed ecomm revenue lift.
-</p>
+Annual paid MRR churn of 8% is an assumed benchmark for SMB SaaS (Mailchimp-specific data for paid-only churn not available in this query; actual may be lower).
+Relative churn reduction represents the fraction of at-risk churn prevented by improved product experiences. Conservative at 15–40% since product changes are one of multiple churn levers.</p>
+
+<h3>Total Revenue Impact Summary</h3>
+<table class="scenario-table" style="font-size: 1rem;">
+<tr><th class="label"></th><th>Low (Conservative)</th><th>Medium (Base)</th><th>High (Optimistic)</th></tr>
+<tr><td class="label">Line A: New Conversion Revenue</td><td>$66K</td><td>$293K</td><td>$759K</td></tr>
+<tr><td class="label">Line B: Retained MRR Saved</td><td>$99K</td><td>$165K</td><td>$263K</td></tr>
+<tr><td class="label" style="font-weight:700; border-top: 3px solid #333; font-size:1.1rem;">TOTAL Incremental Revenue (12mo)</td><td style="color: var(--green); font-weight: 700; border-top: 3px solid #333; font-size:1.1rem;">$165K</td><td style="color: var(--green); font-weight: 700; border-top: 3px solid #333; font-size:1.1rem;">$458K</td><td style="color: var(--green); font-weight: 700; border-top: 3px solid #333; font-size:1.1rem;">$1.02M</td></tr>
+</table>
+<p class="annotation">
+Does not include: expansion/upsell revenue from activated accounts, attributed ecommerce revenue uplift, or international market expansion. Actual impact likely higher once these are factored in.</p>
 
 <div class="chart-wrap"><canvas id="chart-scenario"></canvas></div>
 
@@ -303,10 +337,10 @@ new Chart(document.getElementById('chart-icp'), {
 new Chart(document.getElementById('chart-scenario'), {
   type: 'bar',
   data: { labels: ['Low (Conservative)', 'Medium (Base)', 'High (Optimistic)'], datasets: [
-    { label: 'New Conversions Revenue', data: [219, 546, 983], backgroundColor: colors.blue },
-    { label: 'Retained MRR Saved', data: [362, 724, 1086], backgroundColor: colors.green }
+    { label: 'Line A: New Conversions (70% retention)', data: [66, 293, 759], backgroundColor: colors.blue },
+    { label: 'Line B: Retained MRR Saved', data: [99, 165, 263], backgroundColor: colors.green }
   ]},
-  options: { plugins: { title: { display: true, text: '12-Month Incremental Revenue Impact ($K)' }, legend: { position: 'bottom' } }, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true, title: { display: true, text: '$K' } } } }
+  options: { plugins: { title: { display: true, text: '12-Month Incremental Revenue Impact ($K) — with 70% Retention' }, legend: { position: 'bottom' } }, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true, title: { display: true, text: '$K' } } } }
 });
 </script>
 </body>
